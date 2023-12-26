@@ -1,0 +1,25 @@
+.mainBG {
+    background-color: rgb(35, 137, 210);
+}
+
+.titleBG{
+    background-color: rgb(27, 144, 227);
+}
+
+.body{
+    display: flex;
+    justify-content: center;
+}
+
+.board {
+    display: grid;
+    justify-self: center;
+    grid-template-rows: 135px 135px 135px;
+    grid-template-columns: 135px 135px 135px;
+}
+
+.board-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
