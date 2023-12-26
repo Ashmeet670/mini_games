@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 
         <!--Stylesheets --->
-        <link rel="stylesheet" href="style-rps.css">
+        <link rel="stylesheet" href="rps-style.css">
 
 
     </head>
@@ -25,27 +25,35 @@
 
     <body class="mainBG">
 
-
-        <div class="board">
-            <div id="0" class="board-box">0</div>
-            <div id="1" class="board-box border-start border-end">1</div>
-            <div id="2" class="board-box">2</div>
-            <div id="3" class="board-box border-top border-bottom">3</div>
-            <div id="4" class="board-box border">4</div>
-            <div id="5" class="board-box border-top border-bottom">5</div>
-            <div id="6" class="board-box">6</div>
-            <div id="7" class="board-box border-start border-end">7</div>
-            <div id="8" class="board-box">8</div>
+        <div class="text-center mb-3 py-2 titleBG">
+            <h1 class="fs-1">Tic-Tac-Toe</h1>
         </div>
 
+        <div class="text-center">
+            <h2 id="chanceText" class="fs-3">"X" plays</h2>
+        </div>
 
+        <div style="height: 20px;"></div>
 
+        <div class="body mt-5">
+            <div class="board">
+                <div id="0" class="board-box fs-1 border-dark">  </div>
+                <div id="1" class="board-box fs-1 border-dark border-4 border-start border-end"></div>
+                <div id="2" class="board-box fs-1 border-dark"></div>
+                <div id="3" class="board-box fs-1 border-dark border-4 border-top border-bottom"></div>
+                <div id="4" class="board-box fs-1 border-dark border-4 border"></div>
+                <div id="5" class="board-box fs-1 border-dark border-4 border-top border-bottom"></div>
+                <div id="6" class="board-box fs-1 border-dark"></div>
+                <div id="7" class="board-box fs-1 border-dark border-4 border-start border-end"></div>
+                <div id="8" class="board-box fs-1 border-dark"></div>
+            </div>
+        </div>
 
 
     </body>
 
 
-    <script src="app.js"></script>
+    <script src="rps-game.js"></script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
