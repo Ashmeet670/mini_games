@@ -31,7 +31,6 @@ boxes.forEach(box => {
     });
 });
 
-
 function placeMove(box) {
     if (chance == 'x' && box.innerHTML == "") {
         box.innerHTML = cross
