@@ -4,7 +4,8 @@ const knot = "&cir;"
 
 var chance = 'x'
 var board = ["", "", "", "", "", "", "", "", ""]
-var win = false
+var gameOver = false
+var totalPlaced = 0
 
 boxes = document.querySelectorAll(".board-box")
 chanceText = document.getElementById("chanceText")
@@ -23,17 +24,25 @@ const winningPlaces = [
 
 boxes.forEach(box => {
     box.addEventListener("click", () => {
-        if (!win) {
+        if (!gameOver) {
             placeMove(box)
             checkWinner()
         }
+        if(totalPlaced >=9 && !gameOver){
+            chanceText.innerHTML = "It's a draw!"
+            gameOver = true
+
+        }
+
 
     });
 });
 
+
 function placeMove(box) {
     if (chance == 'x' && box.innerHTML == "") {
         box.innerHTML = cross
+        totalPlaced += 1
         board.splice(box.id, 1, 'x')
         chance = "o"
         chanceText.innerHTML = '"O" plays'
@@ -41,13 +50,14 @@ function placeMove(box) {
     }
     else if (chance == 'o' && box.innerHTML == "") {
         box.innerHTML = knot
+        totalPlaced += 1
         board.splice(box.id, 1, 'o')
         chance = "x"
         chanceText.innerHTML = '"X" plays'
 
     }
-    console.log(board)
 }
+
 
 function checkWinner() {
     for (let i = 0; i <= 7; i++) {
@@ -59,7 +69,7 @@ function checkWinner() {
         if (a, b, c && a === b && a === c) {
             console.log("win")
             chanceText.innerHTML = a.toUpperCase() + " wins"
-            win = true
+            gameOver = true
         }
     }
 }
