@@ -2,6 +2,7 @@
 const cross = "&#x2717;"
 const knot = "&cir;"
 
+
 var chance = 'x'
 var board = ["", "", "", "", "", "", "", "", ""]
 var gameOver = false
@@ -68,7 +69,8 @@ function checkWinner() {
 
         if (a, b, c && a === b && a === c) {
             console.log("win")
-            chanceText.innerHTML = a.toUpperCase() + " wins"
+            chanceText.innerHTML = a.toUpperCase() + '<span class="fs-4 "> WINS </span>'
+            chanceText.classList = "fs-2 font-preahvihear"
             gameOver = true
         }
     }

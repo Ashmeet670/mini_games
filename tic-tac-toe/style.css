@@ -1,12 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Preahvihear&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
+
+* {}
+
 .mainBG {
     background-color: rgb(35, 137, 210);
 }
 
-.titleBG{
+.font-preahvihear {
+    font-family: 'preahvihear';
+
+}
+
+.titleBG {
     background-color: rgb(27, 144, 227);
 }
 
-.body{
+.body {
     display: flex;
     justify-content: center;
 }
@@ -16,16 +26,18 @@
     justify-self: center;
     grid-template-rows: 135px 135px 135px;
     grid-template-columns: 135px 135px 135px;
+
 }
 
 .board-box {
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
-@media only screen and (max-width: 500px){
-    
+@media only screen and (max-width: 500px) {
+
     .board {
         grid-template-rows: 100px 100px 100px;
         grid-template-columns: 100px 100px 100px;
