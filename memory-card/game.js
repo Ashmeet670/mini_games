@@ -13,16 +13,17 @@ tiles = document.querySelectorAll(".tile")
 
 selected = 0
 pairs = []
+currentlySelected = []
 
 function setIcons() {
 
-    possibleIndex = [0,1,2,3,4,5,6,7]
-    possibelTileIndex = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+    possibleIconIndex = [0, 1, 2, 3, 4, 5, 6, 7]
+    possibelTileIndex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 
     for (let i = 0; i <= 7; i++) {
-        iconIndex = possibleIndex[Math.floor(Math.random() * possibleIndex.length)]
+        iconIndex = possibleIconIndex[Math.floor(Math.random() * possibleIconIndex.length)]
         icon = possibleIcons[iconIndex]
-        possibleIndex.splice(possibleIndex.indexOf(iconIndex), 1)
+        possibleIconIndex.splice(possibleIconIndex.indexOf(iconIndex), 1)
 
         randomTile1 = possibelTileIndex[Math.floor(Math.random() * possibelTileIndex.length)]
         possibelTileIndex.splice(possibelTileIndex.indexOf(randomTile1), 1)
@@ -30,22 +31,50 @@ function setIcons() {
         randomTile2 = possibelTileIndex[Math.floor(Math.random() * possibelTileIndex.length)]
         possibelTileIndex.splice(possibelTileIndex.indexOf(randomTile2), 1)
 
-        tiles[randomTile1].firstChild.classList = "icon-holder fs-2 "+icon
-        tiles[randomTile2].firstChild.classList = "icon-holder fs-2 "+icon
-        pairs.push([randomTile1,randomTile2])
+        tiles[randomTile1].firstChild.classList = "icon-holder fs-2 " + icon
+        tiles[randomTile2].firstChild.classList = "icon-holder fs-2 " + icon
+        pairs.push([randomTile1, randomTile2])
 
     }
 }
 
+setIcons()
+
 tiles.forEach(tile => {
-    tile.addEventListener('click', ()=>{
-        if(selected<2){
+    tile.addEventListener('click', () => {
+        if (selected < 2 && !tile.classList.contains("clicked") && !tile.classList.contains("matched")) {
+            console.log("E")
             selected++
             tile.classList.add("clicked")
-            if(selected == 2){
-                // pass
+            tile.firstChild.classList.remove("d-none")
+            currentlySelected.push(Number(tile.id))
+            if (selected == 2) {
+                checkMatch()
+
             }
         }
-        
+
     });
 });
+
+
+function checkMatch() {
+    match = false
+
+    for (i = 0; i in pairs; i++) {
+        if (JSON.stringify([currentlySelected[0], currentlySelected[1]]) == JSON.stringify(pairs[i]) || JSON.stringify([currentlySelected[1], currentlySelected[0]]) == JSON.stringify(pairs[i])) {
+            tiles[currentlySelected[0]].classList.add("matched")
+            tiles[currentlySelected[1]].classList.add("matched")
+            console.log("break")
+            match = true
+        }
+        
+    }
+
+    if(match== false){
+        console.log("N")
+        tiles[currentlySelected[0]].classList.add("not-matched")
+        tiles[currentlySelected[1]].classList.add("not-matched")
+    }
+
+}

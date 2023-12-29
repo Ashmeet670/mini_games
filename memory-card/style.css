@@ -27,13 +27,16 @@
 }
 
 .clicked{
+    transition: 0.2;
     background-color: #ffb732cb;
 }
 
 .matched{
+    transition: 0.2;
     background-color: #c0ff61bf;
 }
 
 .not-matched{
+    transition: 0.2;
     background-color: #ff4545d9;
 }
