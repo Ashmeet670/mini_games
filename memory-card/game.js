@@ -31,8 +31,8 @@ function setIcons() {
         randomTile2 = possibelTileIndex[Math.floor(Math.random() * possibelTileIndex.length)]
         possibelTileIndex.splice(possibelTileIndex.indexOf(randomTile2), 1)
 
-        tiles[randomTile1].firstChild.classList = "icon-holder fs-2 " + icon
-        tiles[randomTile2].firstChild.classList = "icon-holder fs-2 " + icon
+        tiles[randomTile1].firstChild.classList = "icon-holder fs-2 d-none " + icon
+        tiles[randomTile2].firstChild.classList = "icon-holder fs-2 d-none " + icon
         pairs.push([randomTile1, randomTile2])
 
     }
@@ -43,7 +43,6 @@ setIcons()
 tiles.forEach(tile => {
     tile.addEventListener('click', () => {
         if (selected < 2 && !tile.classList.contains("clicked") && !tile.classList.contains("matched")) {
-            console.log("E")
             selected++
             tile.classList.add("clicked")
             tile.firstChild.classList.remove("d-none")
@@ -64,17 +63,36 @@ function checkMatch() {
     for (i = 0; i in pairs; i++) {
         if (JSON.stringify([currentlySelected[0], currentlySelected[1]]) == JSON.stringify(pairs[i]) || JSON.stringify([currentlySelected[1], currentlySelected[0]]) == JSON.stringify(pairs[i])) {
             tiles[currentlySelected[0]].classList.add("matched")
+            tiles[currentlySelected[0]].classList.remove("clicked")
             tiles[currentlySelected[1]].classList.add("matched")
-            console.log("break")
+            tiles[currentlySelected[1]].classList.remove("clicked")
+
             match = true
+            currentlySelected = []
+            selected = 0
+
+
         }
-        
+
     }
 
-    if(match== false){
-        console.log("N")
+    if (match == false) {
         tiles[currentlySelected[0]].classList.add("not-matched")
+        tiles[currentlySelected[0]].classList.remove("clicked")
         tiles[currentlySelected[1]].classList.add("not-matched")
+        tiles[currentlySelected[1]].classList.remove("clicked")
+
+        setTimeout(() => {
+            tiles[currentlySelected[0]].classList.remove("not-matched")
+            tiles[currentlySelected[1]].classList.remove("not-matched")
+            tiles[currentlySelected[0]].firstChild.classList.add("d-none")
+            tiles[currentlySelected[1]].firstChild.classList.add("d-none")
+            currentlySelected = []
+            selected = 0
+
+
+        }, 1000)
     }
+
 
 }
