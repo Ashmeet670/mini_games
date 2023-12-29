@@ -9,19 +9,31 @@
     width: 100px;
     height: 100px;
     margin: 0.35em;
-    background-color: #fff;
+    background-color: #826fff;
     box-shadow: 0 0.2rem 0.3rem rgba(0,0,0,.075)!important;
-    transition: 0.4s;
-    transform: rotateY(180deg);
+    transition: 0.35s;
+    
 }
 .tile:hover{
-    scale: 1.05;
+    scale: 1.07;
     box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.155)!important;
 
 }
 
 .tileBG{
-    background-color: #F8F8F8;
+    background-color: #7964ff;
     width: fit-content;
 
+}
+
+.clicked{
+    background-color: #ffb732cb;
+}
+
+.matched{
+    background-color: #c0ff61bf;
+}
+
+.not-matched{
+    background-color: #ff4545d9;
 }
