@@ -17,12 +17,15 @@ pairs = []
 currentlySelected = []
 
 totalPairsFound = 0
+score = 0
 
 function setIcons() {
 
     pairs = []
     currentlySelected = []
     totalPairsFound = 0
+    selected = 0
+    score = 0
     possibleIconIndex = [0, 1, 2, 3, 4, 5, 6, 7]
     possibelTileIndex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 
@@ -55,8 +58,8 @@ tiles.forEach(tile => {
             currentlySelected.push(Number(tile.id))
             if (selected == 2) {
                 checkMatch()
-                if(totalPairsFound == 4){
-                    console.log("win")
+                if (totalPairsFound == 8) {
+                    playAgainBtn.classList.remove("d-none")
                 }
             }
         }
@@ -79,6 +82,7 @@ function checkMatch() {
             currentlySelected = []
             selected = 0
             totalPairsFound++
+            score++
 
         }
 
@@ -97,21 +101,27 @@ function checkMatch() {
             tiles[currentlySelected[1]].firstChild.classList.add("d-none")
             currentlySelected = []
             selected = 0
+            score--
 
 
         }, 1000)
     }
+
+    
 
 
 }
 
 
 function playAgain() {
-    selected = 0
-    setIcons()
-    playAgainBtn.classList.add("d-none")
 
     tiles.forEach(tile => {
-        tile.classList = "icon-holder fs-2"
+        tile.classList = "tile rounded-3"
+        tile.firstChild.classList = "icon-holder fs-2"
     });
+
+    setIcons()
+
+    playAgainBtn.classList.add("d-none")
+
 }
