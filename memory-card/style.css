@@ -1,6 +1,6 @@
 
 *{
-    
+
 }
 
 
@@ -64,4 +64,9 @@
 .titleText{
     color: rgb(19, 19, 19);
 
+}
+
+.scoreText{
+    background-color: #7964ff;
+    width: fit-content;
 }
