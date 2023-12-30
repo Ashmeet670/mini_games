@@ -10,13 +10,19 @@ const possibleIcons = {
 }
 
 tiles = document.querySelectorAll(".tile")
+playAgainBtn = document.getElementById("playAgain")
 
 selected = 0
 pairs = []
 currentlySelected = []
 
+totalPairsFound = 0
+
 function setIcons() {
 
+    pairs = []
+    currentlySelected = []
+    totalPairsFound = 0
     possibleIconIndex = [0, 1, 2, 3, 4, 5, 6, 7]
     possibelTileIndex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 
@@ -49,7 +55,9 @@ tiles.forEach(tile => {
             currentlySelected.push(Number(tile.id))
             if (selected == 2) {
                 checkMatch()
-
+                if(totalPairsFound == 4){
+                    console.log("win")
+                }
             }
         }
 
@@ -70,7 +78,7 @@ function checkMatch() {
             match = true
             currentlySelected = []
             selected = 0
-
+            totalPairsFound++
 
         }
 
@@ -95,4 +103,15 @@ function checkMatch() {
     }
 
 
+}
+
+
+function playAgain() {
+    selected = 0
+    setIcons()
+    playAgainBtn.classList.add("d-none")
+
+    tiles.forEach(tile => {
+        tile.classList = "icon-holder fs-2"
+    });
 }

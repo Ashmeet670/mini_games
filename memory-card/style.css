@@ -40,3 +40,17 @@
     transition: 0.2;
     background-color: #ff4545d9;
 }
+
+.playAgainBtn{
+    background-color: #7964ff;
+    border: none;
+    transition: 0.2s;
+    color: rgb(43, 43, 43);
+}
+
+.playAgainBtn:hover{
+    background-color: #7964ff;
+    scale: 1.05;
+    box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.155)!important;
+
+}
