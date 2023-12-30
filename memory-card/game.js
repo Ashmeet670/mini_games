@@ -11,13 +11,15 @@ const possibleIcons = {
 
 tiles = document.querySelectorAll(".tile")
 playAgainBtn = document.getElementById("playAgain")
+scoreCounter = document.getElementById("scoreCounter")
+
 
 selected = 0
 pairs = []
 currentlySelected = []
 
 totalPairsFound = 0
-score = 0
+score = 10
 
 function setIcons() {
 
@@ -25,7 +27,8 @@ function setIcons() {
     currentlySelected = []
     totalPairsFound = 0
     selected = 0
-    score = 0
+    score = 10
+    scoreCounter.innerHTML = "Score: " + score
     possibleIconIndex = [0, 1, 2, 3, 4, 5, 6, 7]
     possibelTileIndex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 
@@ -45,6 +48,7 @@ function setIcons() {
         pairs.push([randomTile1, randomTile2])
 
     }
+
 }
 
 setIcons()
@@ -82,7 +86,8 @@ function checkMatch() {
             currentlySelected = []
             selected = 0
             totalPairsFound++
-            score++
+            score+=2
+            scoreCounter.innerHTML = "Score: " + score
 
         }
 
@@ -102,12 +107,12 @@ function checkMatch() {
             currentlySelected = []
             selected = 0
             score--
+            scoreCounter.innerHTML = "Score: " + score
 
 
         }, 1000)
     }
 
-    
 
 
 }
