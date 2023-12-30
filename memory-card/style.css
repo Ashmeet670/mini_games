@@ -1,14 +1,11 @@
-
-*{
-
-}
+* {}
 
 
-.mainBG{
+.mainBG {
     background-color: #634beb;
 }
 
-.tile{
+.tile {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,62 +13,123 @@
     height: 90px;
     margin: 0.35em;
     background-color: #826fff;
-    box-shadow: 0 0.2rem 0.3rem rgba(0,0,0,.075)!important;
+    box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, .075) !important;
     transition: 0.35s;
-    
 }
-.tile:hover{
+
+.tile:hover {
     scale: 1.07;
-    box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.155)!important;
+    box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.155) !important;
 
 }
 
-.tileBG{
+.tileBG {
     background-color: #7964ff;
     width: fit-content;
+    padding: 2rem 3rem;
 
 }
 
-.clicked{
+.clicked {
     transition: 0.2;
     background-color: #ffb732cb;
 }
 
-.matched{
+.matched {
     transition: 0.2;
     background-color: #c0ff61bf;
 }
 
-.not-matched{
+.not-matched {
     transition: 0.2;
     background-color: #ff4545d9;
 }
 
-.playAgainBtn{
-    background-color: #7964ff;
+.playAgainBtn {
+    background-color: #806dff;
     border: none;
     transition: 0.2s;
     color: rgb(43, 43, 43);
+    width: fit-content;
+    font-size: 1.35em;
 }
 
-.playAgainBtn:hover{
-    background-color: #7964ff;
+.playAgainBtn:hover {
+    background-color: #654dff;
     scale: 1.05;
-    box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.155)!important;
+    box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.155) !important;
 
 }
 
-.titleText{
+.titleText {
     color: rgb(19, 19, 19);
 
 }
 
-.scoreText{
+.scoreText {
     background-color: #7964ff;
     width: fit-content;
     display: inline;
 }
 
-.scoreIndicatior{
+.scoreIndicatior {
     display: inline;
+}
+
+@media only screen and (max-width: 800px) {
+
+    .tile {
+        width: 80px;
+        height: 80px;
+    }
+
+    .playAgainBtn {
+        font-size: 1em;
+
+    }
+}
+
+@media only screen and (max-width: 500px) {
+
+    .tile {
+        width: 75px;
+        height: 75px;
+        margin: 0.3em;
+    }
+
+    .tileBG {
+        padding: 1.25rem 1.75rem;
+
+    }
+}
+
+@media only screen and (max-width: 400px) {
+
+    .tile {
+        width: 65px;
+        height: 65px;
+        margin: 0.25em;
+
+    }
+
+    .tileBG {
+        padding: 0.75rem 1.75rem;
+
+    }
+}
+
+@media only screen and (max-width: 350px) {
+
+    .tile {
+        width: 55px;
+        height: 55px;
+        margin: 0.2em;
+
+    }
+
+    .tileBG {
+        padding: 0.75rem 1.75rem;
+
+    }
+    
 }
