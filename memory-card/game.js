@@ -13,7 +13,6 @@ tiles = document.querySelectorAll(".tile")
 playAgainBtn = document.getElementById("playAgain")
 scoreCounter = document.getElementById("scoreCounter")
 
-
 selected = 0
 pairs = []
 currentlySelected = []
@@ -48,7 +47,6 @@ function setIcons() {
         pairs.push([randomTile1, randomTile2])
 
     }
-
 }
 
 setIcons()
@@ -90,7 +88,6 @@ function checkMatch() {
             scoreCounter.innerHTML = "Score: " + score
 
         }
-
     }
 
     if (match == false) {
@@ -112,9 +109,6 @@ function checkMatch() {
 
         }, 1000)
     }
-
-
-
 }
 
 
