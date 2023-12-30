@@ -12,8 +12,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     margin: 0.35em;
     background-color: #826fff;
     box-shadow: 0 0.2rem 0.3rem rgba(0,0,0,.075)!important;
@@ -69,4 +69,9 @@
 .scoreText{
     background-color: #7964ff;
     width: fit-content;
+    display: inline;
+}
+
+.scoreIndicatior{
+    display: inline;
 }
