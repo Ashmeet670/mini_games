@@ -1,18 +1,40 @@
-.mainBG{
+.mainBG {
     background-color: #00213d;
 }
 
-.titleText{
+.titleText {
     color: rgb(51, 129, 208);
 }
 
-.gameCard{
-    background-color: #005aa9;
+.gameCard {
+    position: relative;
+    background-color: #005aa900;
     aspect-ratio: 1/0.75;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: block;
+    transition: 0.2s;
 
 }
 
-.gameImg{
-    width: 50%;
+
+
+
+.gameImg {
+    width: 70%;
     aspect-ratio: 1/1;
 }
+
+.gameText {
+    color: rgb(51, 129, 208);
+    display: block;
+    font-size: 150%;
+}
+
+@media only screen and (min-width: 1135px) {
+    .gameText {
+        font-size: 115%;
+    }
+}
+
