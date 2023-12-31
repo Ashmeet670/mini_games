@@ -1,0 +1,18 @@
+.mainBG{
+    background-color: #00213d;
+}
+
+.titleText{
+    color: rgb(51, 129, 208);
+}
+
+.gameCard{
+    background-color: #005aa9;
+    aspect-ratio: 1/0.75;
+
+}
+
+.gameImg{
+    width: 50%;
+    aspect-ratio: 1/1;
+}
