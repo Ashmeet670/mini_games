@@ -10,7 +10,7 @@ var totalPlaced = 0
 
 boxes = document.querySelectorAll(".board-box")
 chanceText = document.getElementById("chanceText")
-
+restartBtn = document.getElementById("restartBtn")
 
 const winningPlaces = [
     [0, 1, 2],
@@ -29,9 +29,12 @@ boxes.forEach(box => {
             placeMove(box)
             checkWinner()
         }
-        if(totalPlaced >=9 && !gameOver){
+        if (totalPlaced >= 9 && !gameOver) {
             chanceText.innerHTML = "It's a draw!"
             gameOver = true
+            restartBtn.disabled = false
+
+
 
         }
 
@@ -72,6 +75,24 @@ function checkWinner() {
             chanceText.innerHTML = a.toUpperCase() + '<span class="fs-4 "> WINS </span>'
             chanceText.classList = "fs-2 font-preahvihear"
             gameOver = true
+            restartBtn.disabled = false
+
+
+
         }
     }
+}
+
+
+function restart() {
+    chance = 'x'
+    board = ["", "", "", "", "", "", "", "", ""]
+    gameOver = false
+    totalPlaced = 0
+    chanceText.innerHTML = '"X" plays'
+    restartBtn.disabled = true
+
+    boxes.forEach(box => {
+        box.innerHTML = ""
+    });
 }
