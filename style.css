@@ -15,7 +15,14 @@
     justify-content: center;
     display: block;
     transition: 0.2s;
+    color: rgb(51, 129, 208);
 
+
+}
+
+
+.gameCard:hover{
+    color: #5daeff;
 }
 
 
@@ -26,11 +33,13 @@
     aspect-ratio: 1/1;
 }
 
+
 .gameText {
-    color: rgb(51, 129, 208);
     display: block;
     font-size: 150%;
 }
+
+
 
 @media only screen and (min-width: 1135px) {
     .gameText {
