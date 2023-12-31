@@ -38,3 +38,15 @@
     }
 }
 
+@media only screen and (max-width: 470px) {
+    .gameText {
+        font-size: 115%;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .gameText {
+        font-size: 100%;
+    }
+}
+
