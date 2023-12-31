@@ -80,6 +80,12 @@
     display: inline;
 }
 
+
+.homeBtn{
+    position: absolute;
+    top: 10;
+    left: 10;
+}
 @media only screen and (max-width: 800px) {
 
     .tile {

@@ -33,6 +33,19 @@
 
 }
 
+.restartBtn{
+    background-color: #43aefac0 ;
+    border: none;
+
+}
+
+.homeBtn{
+    position: absolute;
+    top: 10;
+    left: 10;
+}
+
+
 @media only screen and (max-width: 500px) {
 
     .board {
