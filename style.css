@@ -1,21 +1,17 @@
 @font-face {
-    font-family: 'barcade';
+    font-family: 'arcade';
     /* Name your font family */
-    src: url('Barcade-R4LM.otf');
+    src: url('arcadeFont.ttf');
     /* Locate the .ttf file within your directory*/
 }
 
 @font-face {
-    font-family: 'bebas';
+    font-family: 'steve';
     /* Name your font family */
-    src: url('/SpaceObsessed-5dzv.ttf');
+    src: url('Steve.ttf');
     /* Locate the .ttf file within your directory*/
 }
 
-
-*{
-    font-family: 'Montserrat';
-}
 
 .mainBG {
     background-color: #293A80;
@@ -23,6 +19,8 @@
 
 .titleText {
     color: #F39422;
+    font-family: "arcade", sans-serif;
+
 }
 
 .gameCard {
@@ -35,7 +33,7 @@
     display: block;
     transition: 0.2s;
     color: #F39422;
-
+    font-family: "steve", sans-serif;
 
 }
 
