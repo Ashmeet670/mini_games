@@ -1,15 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url(SpaceObsessed-5dzv.ttf);
+
+
+@font-face {
+    font-family: 'barcade';
+    /* Name your font family */
+    src: url('Barcade-R4LM.otf');
+    /* Locate the .ttf file within your directory*/
+}
+
+@font-face {
+    font-family: 'space';
+    /* Name your font family */
+    src: url('/SpaceObsessed-5dzv.ttf');
+    /* Locate the .ttf file within your directory*/
+}
+
 
 *{
     font-family: 'Montserrat';
 }
 
 .mainBG {
-    background-color: #002f56;
+    background-color: #293A80;
 }
 
 .titleText {
-    color: rgb(51, 129, 208);
+    color: #F39422;
 }
 
 .gameCard {
@@ -21,15 +37,17 @@
     justify-content: center;
     display: block;
     transition: 0.2s;
-    color: rgb(51, 129, 208);
+    color: #F39422;
 
 
 }
 
 
 .gameCard:hover{
-    color: #5daeff;
+
+    scale: 1.1;
 }
+
 
 
 
