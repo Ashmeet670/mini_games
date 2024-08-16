@@ -1,6 +1,3 @@
-@import url(SpaceObsessed-5dzv.ttf);
-
-
 @font-face {
     font-family: 'barcade';
     /* Name your font family */
@@ -9,7 +6,7 @@
 }
 
 @font-face {
-    font-family: 'space';
+    font-family: 'bebas';
     /* Name your font family */
     src: url('/SpaceObsessed-5dzv.ttf');
     /* Locate the .ttf file within your directory*/
