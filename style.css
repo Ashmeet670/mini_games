@@ -17,10 +17,11 @@
     background-color: #293A80;
 }
 
-.titleText {
+
+.titleText2 {
     color: #F39422;
     font-family: "arcade", sans-serif;
-
+    font-size: 50px;
 }
 
 .gameCard {
@@ -44,9 +45,6 @@
 }
 
 
-
-
-
 .gameImg {
     width: 70%;
     aspect-ratio: 1/1;
@@ -55,26 +53,19 @@
 
 .gameText {
     display: block;
-    font-size: 150%;
 }
 
 
-
-@media only screen and (min-width: 1135px) {
-    .gameText {
-        font-size: 115%;
+@media only screen and (max-width: 800px) {
+    .titleText2 {
+        font-size: 40px;
     }
 }
 
-@media only screen and (max-width: 470px) {
-    .gameText {
-        font-size: 115%;
+@media only screen and (max-width: 400px) {
+    .titleText2 {
+        font-size: 30px;
     }
 }
 
-@media only screen and (max-width: 350px) {
-    .gameText {
-        font-size: 100%;
-    }
-}
 
