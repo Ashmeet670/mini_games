@@ -35,13 +35,12 @@
     transition: 0.2s;
     color: #F39422;
     font-family: "steve", sans-serif;
-    font-size: 250px;
+
 
 }
 
 
 .gameCard:hover{
-
     scale: 1.1;
 }
 
@@ -54,6 +53,7 @@
 
 .gameText {
     display: block;
+    font-size: clamp(18px,3vw,22px)
 }
 
 .up-down-animate{
