@@ -23,25 +23,71 @@
     </head>
 
 
-    <body class="mainBG">
+    <body class="">
 
-        <!-- title -->
-        <div class="mt-5 ">
-            <div class="up-down-animate">
-                <h1 class="titleText2 text-center ">Epic</h1>
-                <h1 class="titleText2 text-center ">Mini-Games</h1>
+        <!-- title bar -->
+        <div class="m-0 d-flex justify-content-between align-items-center">
+
+            <div class="titleText m-3 m-lg-5">MINI-GAMES</div>
+
+
+            <!-- layout selector -->
+            <div id="layoutBox" class="m-3 m-lg-5 d-flex p-1 rounded-3"
+                onclick="toggle(document.getElementById('layout1'),document.getElementById('layout2'))">
+
+                <!-- selector -->
+                <div id="layout2" class="layoutSubBox p-3 rounded-1  ">
+                    <svg aria-hidden="true" width="23" height="23" viewBox="0 0 30 28">
+                        <rect x="1" y="7" width="6" height="12" rx="2" fill="currentColor" opacity=".6"></rect>
+                        <rect x="9" y="2" width="12" height="22" rx="3" fill="currentColor"></rect>
+                        <rect x="23" y="7" width="6" height="12" rx="2" fill="currentColor" opacity=".6"></rect>
+                    </svg>
+                </div>
+
+
+                <!-- grid -->
+                <div id="layout1" class="layoutSubBox p-3 rounded-1 d-none">
+                    <svg aria-hidden="true" width="23" height="23" viewBox="0 0 26 26">
+                        <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor"></rect>
+                        <rect x="15" y="2" width="9" height="9" rx="2" fill="currentColor"></rect>
+                        <rect x="2" y="15" width="9" height="9" rx="2" fill="currentColor"></rect>
+                        <rect x="15" y="15" width="9" height="9" rx="2" fill="currentColor"></rect>
+                    </svg>
+                </div>
+
             </div>
+
         </div>
 
-        <div style="height: 40px;"></div>
+
+
+        <div style="height: 5vh;"></div>
 
         <!-- Game list -->
-        <div class="container">
-            <div id="cards" class="row justify-content-evenly">
+        <div id="cards" class="d-flex justify-content-center align-items-end">
+            <section class="gameCard gcll">
+                <img id="1" class="gameImg rounded-3" src="" alt="">
+            </section>
+            <section class="gameCard gcl">
+                <img id="2" class="gameImg rounded-3" src="" alt="">
+            </section>
+            <section class="gameCard gcc mx-3">
+                <img id="3" class="gameImg rounded-3 selected" src="" alt="">
+            </section>
+            <section class="gameCard gcr">
+                <img id="4" class="gameImg rounded-3" src="" alt="">
+            </section>
+            <section class="gameCard gcrr">
+                <img id="5" class="gameImg rounded-3" src="" alt="">
+            </section>
+        </div>
 
-            
 
-            </div>
+        
+        <div class="text-center justify-content-center">
+            <div id="gameName" class="gameText mt-5 text-center">Sodoku</div>
+            <div id="gamePlayers" class="gameText2 my-1 text-center">1 Player</div>
+            <div class="gamePlay mx-auto my-3 px-4 py-1 rounded-2 text-center">PLAY</div>
         </div>
 
 
