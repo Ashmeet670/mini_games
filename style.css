@@ -30,7 +30,7 @@ html{
 }
 
 body {
-    background: radial-gradient(900px 520px at 50% 28%, rgb(30, 30, 41), rgb(18, 18, 18)) fixed;
+    background: radial-gradient(900px 520px at 50% 28%, rgb(30, 30, 41), rgb(18, 18, 18));
     user-select: none;
 }
 
@@ -52,12 +52,18 @@ body {
     font-size: clamp(13px, 0.9vw, 28px);
 }
 .gamePlay{
-    color: var(--textOnAccent);
     font-family: "Press Start 2P", sans-serif;
     font-size: clamp(25px, 2vw, 65px);
+    border:2px solid var(--accent);
+    color: var(--accent);
+
+    width: fit-content;   
+}
+
+.gamePlay:hover{
     background-color: var(--accent);
-    width: fit-content;
-    
+    color: var(--textOnAccent);
+    cursor: pointer;
 }
 
 #layoutBox {

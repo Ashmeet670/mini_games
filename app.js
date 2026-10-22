@@ -29,11 +29,13 @@ function toggle(item1, item2) {
 }
 
 var selectedGame = 2 //sodoku selected by default
+var l = games.length
+
 
 function move(direction) {
     direction == 'r' ? selectedGame -= 1 : selectedGame += 1
-    if (selectedGame == -1) selectedGame = 4;
-    if (selectedGame == 5) selectedGame = 0;
+    if (selectedGame == -1) selectedGame = l-1;
+    if (selectedGame == l) selectedGame = 0;
 
     document.getElementById(`gameName`).innerText = games[selectedGame]
     document.getElementById(`gamePlayers`).innerText = `${gamePlayers[selectedGame]} Players`
@@ -42,11 +44,11 @@ function move(direction) {
         ind = selectedGame - 2 // get the first card ka pic index
         switch (ind) { //for case when select game is 1 or 0
             case -1:
-                ind = 4
+                ind = l-1
                 break;
 
             case -2:
-                ind = 3
+                ind = l-2
                 break;
 
             default:
@@ -54,7 +56,7 @@ function move(direction) {
         }
 
         t = ind + Number(i)
-        if (t > 4) t = t - 5
+        if (t > (l-1)) t = t - l
 
         document.getElementById(`${Number(i) + 1}`).src = `/images/${gameImages[t]}`
 
