@@ -64,16 +64,24 @@ function move(direction) {
     }
 }
 
-
 document.addEventListener('keydown', (e) => {
 
 
     if (e.key == "d" || e.key == "ArrowRight") {
-        move("r")
-    }
-    if (e.key == "a" || e.key == "ArrowLeft") {
         move("l")
     }
+    if (e.key == "a" || e.key == "ArrowLeft") {
+        move("r")
+    }
 
+    if(e.key == 'Enter'){
+        playGame()
+    }
 
 });
+
+function playGame(){
+    linker = document.getElementById('goToPlay')
+    linker.href = gameLinks[selectedGame]
+    linker.click()
+}
