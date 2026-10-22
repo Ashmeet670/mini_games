@@ -8,12 +8,12 @@ gameLinks = [
     "tic-tac-toe/game.html"
 ];
 
-gameImages = ["wackABone.png","wordle.png","sodoku.png","memoryCard.png","ticTacToe.png"];
-gamePlayers = ["1","1","1","1","2"]
+gameImages = ["wackABone.png", "wordle.png", "sodoku.png", "memoryCard.png", "ticTacToe.png"];
+gamePlayers = ["1", "1", "1", "1", "2"]
 
 
 for (i in games) {
-    document.getElementById(`${Number(i) + 1}`).src = `../images/${gameImages[i]}`
+    document.getElementById(`${Number(i) + 1}`).src = `/images/${gameImages[i]}`
 }
 
 
@@ -30,15 +30,45 @@ function toggle(item1, item2) {
 
 var selectedGame = 2 //sodoku selected by default
 
-function move(direction){
-    direction == 'r' ? selectedGame -=1 :selectedGame +=1
-    if(selectedGame == -1) selectedGame = 4;
-    if(selectedGame == 5) selectedGame = 0;
-    
-    console.log(selectedGame)
+function move(direction) {
+    direction == 'r' ? selectedGame -= 1 : selectedGame += 1
+    if (selectedGame == -1) selectedGame = 4;
+    if (selectedGame == 5) selectedGame = 0;
 
     for (i in games) {
-        document.getElementById(`${Number(i) + 1}`).src = `../images/${gameImages[Number(i)+selectedGame]}`
+        ind = selectedGame - 2 // get the first card ka pic index
+        switch (ind) { //for case when select game is 1 or 0
+            case -1:
+                ind = 4
+                break;
+
+            case -2:
+                ind = 3
+                break;
+            
+            default:
+                break;
+        }
+        
+        t = ind + Number(i)
+        if (t>4) t = t-5
+
+        document.getElementById(`${Number(i)+1}`).src = `/images/${gameImages[t]}`
+        
+        
     }
 }
 
+
+document.addEventListener('keydown', (e) => {
+
+
+    if (e.key == "d" || e.key == "ArrowRight") {
+        move("r")
+    }
+    if (e.key == "a" || e.key == "ArrowLeft") {
+        move("l")
+    }
+
+
+});
