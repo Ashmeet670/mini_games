@@ -25,6 +25,9 @@
     --gap: 3vh; 
 }
 
+html{
+    background-color: rgb(18,18,18);
+}
 
 body {
     background: radial-gradient(900px 520px at 50% 28%, rgb(30, 30, 41), rgb(18, 18, 18)) fixed;

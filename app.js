@@ -35,6 +35,9 @@ function move(direction) {
     if (selectedGame == -1) selectedGame = 4;
     if (selectedGame == 5) selectedGame = 0;
 
+    document.getElementById(`gameName`).innerText = games[selectedGame]
+    document.getElementById(`gamePlayers`).innerText = `${gamePlayers[selectedGame]} Players`
+
     for (i in games) {
         ind = selectedGame - 2 // get the first card ka pic index
         switch (ind) { //for case when select game is 1 or 0
@@ -45,17 +48,17 @@ function move(direction) {
             case -2:
                 ind = 3
                 break;
-            
+
             default:
                 break;
         }
-        
-        t = ind + Number(i)
-        if (t>4) t = t-5
 
-        document.getElementById(`${Number(i)+1}`).src = `/images/${gameImages[t]}`
-        
-        
+        t = ind + Number(i)
+        if (t > 4) t = t - 5
+
+        document.getElementById(`${Number(i) + 1}`).src = `/images/${gameImages[t]}`
+
+
     }
 }
 
