@@ -33,7 +33,7 @@
 
             <!-- layout selector -->
             <div id="layoutBox" class="m-3 m-lg-5 d-flex p-1 rounded-3"
-                onclick="toggle(document.getElementById('layout1'),document.getElementById('layout2'))">
+                onclick="toggle(document.getElementById('layout1'),document.getElementById('layout2'),document.getElementById('gridView'),document.getElementById('selectorView'))">
 
                 <!-- selector -->
                 <div id="layout2" class="layoutSubBox p-3 rounded-1  ">
@@ -63,34 +63,46 @@
 
         <div style="height: 5vh;"></div>
 
-        <!-- Game list -->
-        <div id="cards" class="d-flex justify-content-center align-items-end">
-            <section class="gameCard gcll">
-                <img id="1" class="gameImg rounded-3" src="" alt="">
-            </section>
-            <section class="gameCard gcl">
-                <img id="2" class="gameImg rounded-3" src="" alt="">
-            </section>
-            <section class="gameCard gcc mx-3">
-                <img id="3" class="gameImg rounded-3 selected" src="" alt="">
-            </section>
-            <section class="gameCard gcr">
-                <img id="4" class="gameImg rounded-3" src="" alt="">
-            </section>
-            <section class="gameCard gcrr">
-                <img id="5" class="gameImg rounded-3" src="" alt="">
-            </section>
+        <!-- Game selector -->
+        <div id="selectorView" class="d-none">
+            <div class="d-flex justify-content-center align-items-end">
+                <section class="gameCard gcll">
+                    <img id="1" class="gameImg rounded-3" src="" alt="">
+                </section>
+                <section class="gameCard gcl">
+                    <img id="2" class="gameImg rounded-3" src="" alt="">
+                </section>
+                <section class="gameCard gcc mx-3">
+                    <img id="3" class="gameImg rounded-3 selected" src="" alt="">
+                </section>
+                <section class="gameCard gcr">
+                    <img id="4" class="gameImg rounded-3" src="" alt="">
+                </section>
+                <section class="gameCard gcrr">
+                    <img id="5" class="gameImg rounded-3" src="" alt="">
+                </section>
+            </div>
+            <div class="text-center ">
+                <div id="gameName" class="gameText mt-5 text-center">Sodoku</div>
+                <div id="gamePlayers" class="gameText2 my-1 text-center">1 Player</div>
+                <div class="gamePlay mx-auto my-3 p-1 rounded-2 text-center" onclick="playGame()">
+                    <div class="textHighlightPlay px-4 py-1 rounded-1">PLAY</div>
+                </div>
+                <a id="goToPlay" target="_" class="d-none" href=""></a>
+            </div>
+        </div>
+
+        <!-- Game grid -->
+        <div id="gridView" class="d-flex flex-wrap justify-content-center">
+
+            <a href="apple.com" target="_" id="gridPlay" class="d-none"></a>
+
+
         </div>
 
 
-        
-        <div class="text-center justify-content-center">
-            <div id="gameName" class="gameText mt-5 text-center">Sodoku</div>
-            <div id="gamePlayers" class="gameText2 my-1 text-center">1 Player</div>
-            <div class="gamePlay mx-auto my-3 p-1 rounded-2 text-center" onclick="playGame()" >
-                <div class="textHighlightPlay px-4 py-1 rounded-1">PLAY</div></div>
-            <a id="goToPlay" target="_" class="d-none" href=""></a>
-        </div>
+
+
 
 
     </body>

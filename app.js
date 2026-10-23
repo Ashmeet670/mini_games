@@ -1,35 +1,64 @@
-games = ["Wack-A-Bone", "Wordle", "Sodoku", "Remember The Tile", "Tic-Tac-Toe"]
+gamesSelectorOrder = ["Wack-A-Bone", "Wordle", "Sodoku", "Remember The Tile", "Tic-Tac-Toe"]
+gamesGridOrder = [ "Sodoku","Wordle",  "Remember The Tile", "Wack-A-Bone","Tic-Tac-Toe"]
 
-gameLinks = [
-    "https://ashmeet670.github.io/wack_a_bone/",
-    "https://ashmeet670.github.io/wordle/",
-    "https://ashmeet670.github.io/sodoku/",
-    "memory-card/game.html",
-    "tic-tac-toe/game.html"
-];
+gameLinks = {
+    "Wack-A-Bone": "https://ashmeet670.github.io/wack_a_bone/",
+    "Wordle": "https://ashmeet670.github.io/wordle/",
+    "Sodoku": "https://ashmeet670.github.io/sodoku/",
+    "Remember The Tile": "memory-card/game.html",
+    "Tic-Tac-Toe": "tic-tac-toe/game.html"
+}
 
-gameImages = ["wackABone.png", "wordle.png", "sodoku.png", "memoryCard.png", "ticTacToe.png"];
+gameImages = {
+    "Wack-A-Bone": "wackABone.png",
+    "Wordle": "wordle.png",
+    "Sodoku": "sodoku.png",
+    "Remember The Tile": "memoryCard.png",
+    "Tic-Tac-Toe": "ticTacToe.png"
+};
 gamePlayers = ["1", "1", "1", "1", "2"]
+selectorActive = true
 
+for (i in gamesSelectorOrder) {
+    document.getElementById(`${Number(i) + 1}`).src = `/images/${gameImages[gamesSelectorOrder[i]]}`
 
-for (i in games) {
-    document.getElementById(`${Number(i) + 1}`).src = `/images/${gameImages[i]}`
+    document.getElementById("gridView").insertAdjacentHTML('beforeend',
+        `
+        <div class="gridCard m-3 rounded-3" onclick="playGrid(${i})">
+            <img id="" class="gridImg rounded-1" src="/images/${gameImages[gamesGridOrder[i]]}" alt="">
+            <div class="gridText">
+                <div class="p-2 mx-2 text-center">${gamesGridOrder[i]} </div>
+            </div>
+        </div>
+        
+        `
+    )
+
 }
 
 
-function toggle(item1, item2) {
-    if (item1.classList.contains("d-none")) {
-        item1.classList.remove("d-none")
-        item2.classList.add("d-none")
+function toggle(item1Button, item2Button, item1, item2) {
+
+    if (item1Button.classList.contains("d-none")) {
+
+        item1Button.classList.remove("d-none")
+        item2Button.classList.add("d-none")
+        item1.classList.remove('d-none')
+        item2.classList.add('d-none')
+        selectorActive = false
     }
     else {
-        item1.classList.add("d-none")
-        item2.classList.remove("d-none")
+        item1Button.classList.add("d-none")
+        item2Button.classList.remove("d-none")
+        item1.classList.add('d-none')
+        item2.classList.remove('d-none')
+        selectorActive = true
+
     }
 }
 
 var selectedGame = 2 //sodoku selected by default
-var l = games.length
+var l = gamesSelectorOrder.length
 
 
 function move(direction) {
@@ -37,10 +66,10 @@ function move(direction) {
     if (selectedGame == -1) selectedGame = l - 1;
     if (selectedGame == l) selectedGame = 0;
 
-    document.getElementById(`gameName`).innerText = games[selectedGame]
+    document.getElementById(`gameName`).innerText = gamesSelectorOrder[selectedGame]
     document.getElementById(`gamePlayers`).innerText = `${gamePlayers[selectedGame]} Players`
 
-    for (i in games) {
+    for (i in gamesSelectorOrder) {
         ind = selectedGame - 2 // get the first card ka pic index
         switch (ind) { //for case when select game is 1 or 0
             case -1:
@@ -58,7 +87,7 @@ function move(direction) {
         t = ind + Number(i)
         if (t > (l - 1)) t = t - l
 
-        document.getElementById(`${Number(i) + 1}`).src = `/images/${gameImages[t]}`
+        document.getElementById(`${Number(i) + 1}`).src = `/images/${gameImages[gamesSelectorOrder[t]]}`
 
 
     }
@@ -107,14 +136,14 @@ function move(direction) {
 document.addEventListener('keydown', (e) => {
 
 
-    if (e.key == "d" || e.key == "ArrowRight") {
+    if ((e.key == "d" || e.key == "ArrowRight") && (selectorActive)) {
         move("l")
     }
-    if (e.key == "a" || e.key == "ArrowLeft") {
+    if ((e.key == "a" || e.key == "ArrowLeft") && (selectorActive)) {
         move("r")
     }
 
-    if (e.key == 'Enter') {
+    if ((e.key == 'Enter') && (selectorActive)) {
         playGame()
     }
 
@@ -122,6 +151,11 @@ document.addEventListener('keydown', (e) => {
 
 function playGame() {
     linker = document.getElementById('goToPlay')
-    linker.href = gameLinks[selectedGame]
+    linker.href = gameLinks[gamesSelectorOrder[selectedGame]]
     linker.click()
+}
+
+function playGrid(l) {
+    document.getElementById('gridPlay').href = gameLinks[gamesSelectorOrder[l]]
+    document.getElementById('gridPlay').click()
 }
