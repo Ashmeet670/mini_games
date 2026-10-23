@@ -30,7 +30,9 @@ html{
 }
 
 body {
-    background: radial-gradient(900px 520px at 50% 28%, rgb(30, 30, 41), rgb(18, 18, 18));
+    min-height: 100vh;
+    background: radial-gradient(900px 520px at 50% 28%, rgb(32, 32, 42), rgb(18, 18, 18)) fixed;
+    background-color: rgb(18, 18, 18);
     user-select: none;
 }
 
@@ -60,7 +62,7 @@ body {
     width: fit-content;   
 }
 
-.gamePlay:hover{
+.gamePlay .textHighlightPlay:hover{
     background-color: var(--accent);
     color: var(--textOnAccent);
     cursor: pointer;
@@ -92,6 +94,7 @@ body {
 
 .gameCard {
     color: var(--accent);
+    transform-origin: 50% 100%;
 }
 
 .gameCard img {
