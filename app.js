@@ -28,12 +28,12 @@ gamePlayers = {
 selectorActive = true
 
 for (i in gamesSelectorOrder) {
-    document.getElementById(`${Number(i) + 1}`).src = `/images/${gameImages[gamesSelectorOrder[i]]}`
+    document.getElementById(`${Number(i) + 1}`).src = `images//${gameImages[gamesSelectorOrder[i]]}`
 
     document.getElementById("gridItems").insertAdjacentHTML('beforeend',
         `
         <div class="gridCard m-3 rounded-3" onclick="playGrid(${i})">
-            <img id="" class="gridImg rounded-1" src="/images/${gameImages[gamesGridOrder[i]]}" alt="">
+            <img id="" class="gridImg rounded-1" src="images//${gameImages[gamesGridOrder[i]]}" alt="">
             <div class="gridText">
                 <div class="p-2 mx-2 text-center">${gamesGridOrder[i]} </div>
             </div>
@@ -47,7 +47,7 @@ for (i in gamesSelectorOrder) {
         `
         <div class="mobileCard mx-auto my-3 d-flex rounded-2">
 
-            <img class="" src="/images/${gameImages[gamesGridOrder[i]]}" alt="">
+            <img class="" src="images//${gameImages[gamesGridOrder[i]]}" alt="">
 
             <div class="d-flex flex-column mx-3">
                 <text class="gameText mt-auto">${gamesGridOrder[i]}</text>
@@ -119,7 +119,7 @@ function move(direction) {
         t = ind + Number(i)
         if (t > (l - 1)) t = t - l
 
-        document.getElementById(`${Number(i) + 1}`).src = `/images/${gameImages[gamesSelectorOrder[t]]}`
+        document.getElementById(`${Number(i) + 1}`).src = `images//${gameImages[gamesSelectorOrder[t]]}`
 
 
     }
