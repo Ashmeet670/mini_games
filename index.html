@@ -26,13 +26,13 @@
     <body class="">
 
         <!-- title bar -->
-        <div class="m-0 d-flex justify-content-between align-items-center">
+        <div class="m-0 d-flex justify-content-center justify-content-sm-between align-items-center">
 
-            <div class="titleText m-3 m-lg-5">MINI-GAMES</div>
+            <div class="titleText my-5 m-sm-3 m-lg-5">MINI-GAMES</div>
 
 
             <!-- layout selector -->
-            <div id="layoutBox" class="m-3 m-lg-5 d-flex p-1 rounded-3"
+            <div id="layoutBox" class="m-3 m-lg-5 d-none d-sm-flex p-1 rounded-3"
                 onclick="toggle(document.getElementById('layout1'),document.getElementById('layout2'),document.getElementById('gridView'),document.getElementById('selectorView'))">
 
                 <!-- selector -->
@@ -61,10 +61,10 @@
 
 
 
-        <div style="height: 5vh;"></div>
+        <div style="height: 5vh;" class="d-none d-sm-block "></div>
 
         <!-- Game selector -->
-        <div id="selectorView" class="d-none">
+        <div id="selectorView" class="">
             <div class="d-flex justify-content-center align-items-end">
                 <section class="gameCard gcll">
                     <img id="1" class="gameImg rounded-3" src="" alt="">
@@ -93,16 +93,18 @@
         </div>
 
         <!-- Game grid -->
-        <div id="gridView" class="d-flex flex-wrap justify-content-center">
-
-            <a href="apple.com" target="_" id="gridPlay" class="d-none"></a>
-
+        <div id="gridView" class="d-none ">
+            <div id="gridItems" class="d-flex flex-wrap justify-content-center ">
+                <a href="" target="_" id="gridPlay" class="d-none"></a>
+            </div>
 
         </div>
 
 
+        <div id="mobileView" class="d-sm-none">
 
-
+            
+        </div>
 
 
     </body>

@@ -1,11 +1,11 @@
-gamesSelectorOrder = ["Wack-A-Bone", "Wordle", "Sodoku", "Remember The Tile", "Tic-Tac-Toe"]
-gamesGridOrder = [ "Sodoku","Wordle",  "Remember The Tile", "Wack-A-Bone","Tic-Tac-Toe"]
+gamesSelectorOrder = ["Wack-A-Bone", "Wordle", "Sodoku", "Tiles", "Tic-Tac-Toe"]
+gamesGridOrder = ["Sodoku", "Wordle", "Tiles", "Wack-A-Bone", "Tic-Tac-Toe"]
 
 gameLinks = {
     "Wack-A-Bone": "https://ashmeet670.github.io/wack_a_bone/",
     "Wordle": "https://ashmeet670.github.io/wordle/",
     "Sodoku": "https://ashmeet670.github.io/sodoku/",
-    "Remember The Tile": "memory-card/game.html",
+    "Tiles": "memory-card/game.html",
     "Tic-Tac-Toe": "tic-tac-toe/game.html"
 }
 
@@ -13,16 +13,24 @@ gameImages = {
     "Wack-A-Bone": "wackABone.png",
     "Wordle": "wordle.png",
     "Sodoku": "sodoku.png",
-    "Remember The Tile": "memoryCard.png",
+    "Tiles": "memoryCard.png",
     "Tic-Tac-Toe": "ticTacToe.png"
 };
-gamePlayers = ["1", "1", "1", "1", "2"]
+
+gamePlayers = {
+    "Wack-A-Bone": "1",
+    "Wordle": "1",
+    "Sodoku": "1",
+    "Tiles": "1",
+    "Tic-Tac-Toe": "2"
+};
+
 selectorActive = true
 
 for (i in gamesSelectorOrder) {
     document.getElementById(`${Number(i) + 1}`).src = `/images/${gameImages[gamesSelectorOrder[i]]}`
 
-    document.getElementById("gridView").insertAdjacentHTML('beforeend',
+    document.getElementById("gridItems").insertAdjacentHTML('beforeend',
         `
         <div class="gridCard m-3 rounded-3" onclick="playGrid(${i})">
             <img id="" class="gridImg rounded-1" src="/images/${gameImages[gamesGridOrder[i]]}" alt="">
@@ -31,6 +39,30 @@ for (i in gamesSelectorOrder) {
             </div>
         </div>
         
+        `
+    )
+
+
+    document.getElementById("mobileView").insertAdjacentHTML('beforeend',
+        `
+        <div class="mobileCard mx-auto my-3 d-flex rounded-2">
+
+            <img class="" src="/images/${gameImages[gamesGridOrder[i]]}" alt="">
+
+            <div class="d-flex flex-column mx-3">
+                <text class="gameText mt-auto">${gamesGridOrder[i]}</text>
+                <text class="gameText2 mb-auto">${gamePlayers[gamesGridOrder[i]]} Player</text>
+            </div>
+
+            <div class="playButton d-flex align-items-center ms-auto my-1 me-3" onclick="playGrid(${i})">
+
+                <svg class="rounded-2" xmlns="http://www.w3.org/2000/svg" width="3em" height="100%"
+                            fill="currentColor" class="bi bi-play-fill" viewBox="0 0 15 16">
+
+                <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
+                </svg>
+            </div>
+        </div>
         `
     )
 
@@ -67,7 +99,7 @@ function move(direction) {
     if (selectedGame == l) selectedGame = 0;
 
     document.getElementById(`gameName`).innerText = gamesSelectorOrder[selectedGame]
-    document.getElementById(`gamePlayers`).innerText = `${gamePlayers[selectedGame]} Players`
+    document.getElementById(`gamePlayers`).innerText = `${gamePlayers[gamesSelectorOrder[selectedGame]]} Player`
 
     for (i in gamesSelectorOrder) {
         ind = selectedGame - 2 // get the first card ka pic index
@@ -156,6 +188,6 @@ function playGame() {
 }
 
 function playGrid(l) {
-    document.getElementById('gridPlay').href = gameLinks[gamesSelectorOrder[l]]
+    document.getElementById('gridPlay').href = gameLinks[gamesGridOrder[l]]
     document.getElementById('gridPlay').click()
 }
